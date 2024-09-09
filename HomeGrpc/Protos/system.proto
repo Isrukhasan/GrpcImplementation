@@ -1,0 +1,33 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "HomeGrpc";
+
+import "google/api/annotations.proto";
+
+package sysPackage;
+
+
+service ListProcessor {
+rpc ListOfProcess(GetAllRequest) returns (GetAllResponse){
+		option (google.api.http) = {
+			get: "/server"
+		};
+	}
+}
+
+//read list
+
+
+message SingleProcess{
+	int32 id=1;
+	string processName=2;
+}
+
+
+message GetAllRequest{
+
+}
+
+message GetAllResponse{
+	repeated SingleProcess AllProcess=1;
+}
